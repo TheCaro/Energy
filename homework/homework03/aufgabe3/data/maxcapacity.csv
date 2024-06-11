@@ -14,3 +14,10 @@ DK,WindOffshore,0
 NO,SolarPV,25
 NO,WindOnshore,40
 NO,WindOffshore,0
+DE,CoalMine,0
+FR,CoalMine,0
+NO,CoalMine,0
+DK,CoalMine,0
+FR,GasExtractor,0
+DK,GasExtractor,0
+UK,GasExtractor,0

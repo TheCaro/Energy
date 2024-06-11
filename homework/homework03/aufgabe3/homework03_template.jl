@@ -79,6 +79,7 @@ ESM = Model(HiGHS.Optimizer)
 @variable(ESM, TechnologyEmissions[regions,technologies] >=0)
 @variable(ESM, Curtailment[regions,hour,fuels] >=0)
 
+
 ### And we also need to add our new variables for storages
 @variable(ESM, StorageEnergyCapacity[regions,s=storages,f=fuels; StorageDischargeEfficiency[s,f]>0]>=0)
 @variable(ESM, StorageCharge[regions,s=storages, hour, f=fuels; StorageDischargeEfficiency[s,f]>0]>=0)
