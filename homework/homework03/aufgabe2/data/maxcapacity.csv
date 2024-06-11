@@ -1,0 +1,16 @@
+﻿region,technology,value
+DE,SolarPV,150
+DE,WindOnshore,100
+DE,WindOffshore,20
+FR,SolarPV,200
+FR,WindOnshore,130
+FR,WindOffshore,10
+UK,SolarPV,90
+UK,WindOnshore,140
+UK,WindOffshore,5
+DK,SolarPV,45
+DK,WindOnshore,60
+DK,WindOffshore,0
+NO,SolarPV,25
+NO,WindOnshore,40
+NO,WindOffshore,0

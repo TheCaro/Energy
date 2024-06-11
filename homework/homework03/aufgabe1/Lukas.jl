@@ -34,9 +34,6 @@ EmissionRatio = readin("emissionratio.csv", dims=1, dir=data_dir)
 DemandProfile = readin("demandprofile_regions.csv", default=1/n_hour, dims=3, dir=data_dir)
 CapacityFactor = readin("capacity_factors_regions.csv",default=0, dims=3, dir=data_dir)
 TagDispatchableTechnology = readin("tagdispatchabletechnology.csv",default=1,dims=1, dir=data_dir)
-# new parameters
-TradeDistance = readin("tradedistance.csv",default=0, dims=2, dir=data_dir)
-TradeCostFactor = readin("tradecostfactor.csv",default=0, dims=1, dir=data_dir)
 
 # we need to ensure that all non-variable technologies do have a CapacityFactor of 1 at all times
 for r in regions    
@@ -186,7 +183,6 @@ ESM = Model(HiGHS.Optimizer)
     sum(TotalCost[r,t] for t in technologies for r in regions) 
     + sum(TotalStorageCost[r,s] for s in storages for r in regions)
     + sum(0.1 * (Export[rr,r,h,f] + Import[r,rr,h,f]) for h in hour, r in regions, rr in regions, f in fuels)
-    + sum(TradeCostFactor[f]*TradeDistance[r,rr]*Export[r,rr,h,f] for h in hour, r in regions, rr in regions, f in fuels)
     )
 
 # this starts the optimization
@@ -199,4 +195,3 @@ objective_value(ESM)
 # you can find the code that does this reading, merging, and writing of results in the helper_functions.jl file!
 df_energybalance,df_capacity,df_storage_level,df_trade = process_dataframes()
 write_result_csvs()
-
